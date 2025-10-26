@@ -1,3 +1,4 @@
+## Installation and Setup
 - mkdir myblog_project
 - cd myblog_project
 - python3 -m venv venv
