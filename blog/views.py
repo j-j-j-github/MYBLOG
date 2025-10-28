@@ -31,9 +31,16 @@ def register(request):
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'
+    
     context_object_name = 'posts'
     ordering = ['-date_posted']
+    paginate_by = 5 
+
+    def get_template_names(self):
+        if self.request.user.is_authenticated:
+            return ['blog/home.html']  # Logged-in users see the feed
+        else:
+            return ['blog/landing.html'] # Logged-out users see the landing page
 
 class PostDetailView(DetailView):
     model = Post

@@ -8,7 +8,7 @@ from ckeditor.fields import RichTextField
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField(blank=True, null=True)
-    image = models.ImageField(default='default.jpg', upload_to='post_banners')
+    image = models.ImageField(upload_to='post_banners', null=True, blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
 

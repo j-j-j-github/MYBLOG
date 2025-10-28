@@ -1,11 +1,8 @@
 {% extends "blog/base.html" %}
+{% block title %}Posts by {{ view.kwargs.username }}{% endblock %}
 
 {% block content %}
-    <h2 class="section-title">For you</h2>
-    <div class="feed-filter-tabs">
-        <span class="tab active">For you</span>
-        <span class="tab">Featured</span>
-    </div>
+    <h2 class="section-title">Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h2>
 
     {% for post in posts %}
         <article class="post-card content-section">

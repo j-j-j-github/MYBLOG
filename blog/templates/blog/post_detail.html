@@ -1,22 +1,29 @@
 {% extends "blog/base.html" %}
+{% block title %}{{ object.title }}{% endblock %}
+
 {% block content %}
-  <article class="media content-section">
-    <div class="media-body">
-      <div class="article-metadata">
-        <a class="mr-2" href="#">{{ object.author }}</a>
-        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
-        {% if object.author == user %}
-          <div>
-            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
-            <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
-          </div>
-        {% endif %}
+  <article class="post-detail-article">
+    {% if object.image %}
+        <img src="{{ object.image.url }}" class="post-detail-banner" alt="{{ object.title }} Banner">
+    {% endif %}
+
+    <h1 class="post-detail-title">{{ object.title }}</h1>
+    
+    <div class="post-detail-meta">
+      <img src="{{ object.author.profile.image.url }}" alt="Author Profile" class="author-avatar">
+      <div class="meta-info">
+        <a href="{% url 'user-posts' object.author.username %}" class="author-name">{{ object.author }}</a>
+        <small class="post-date">{{ object.date_posted|date:"F d, Y" }}</small>
       </div>
-      <h2 class="article-title">{{ object.title }}</h2>
-      {% if object.image %}
-          <img src="{{ object.image.url }}" class="article-banner">
-      {% endif %}
-      <div class="article-content">{{ object.content|safe }}</div>
     </div>
+
+    <div class="post-detail-content">{{ object.content|safe }}</div>
+
+    {% if object.author == user %}
+        <div class="post-actions">
+            <a class="btn btn-secondary" href="{% url 'post-update' object.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'post-delete' object.id %}">Delete</a>
+        </div>
+    {% endif %}
   </article>
 {% endblock content %}
