@@ -1,12 +1,20 @@
-{% extends "blog/base.html" %}
-{% block title %}Register{% endblock %}
+{% extends "blog/logged_out_base.html" %}
+
+{% block title %}Get Started - Django Blog{% endblock %}
 
 {% block content %}
-    <div class="content-section form-container">
+<div class="split-form-container">
+    
+    <!-- Left Side: Information -->
+    <div class="split-form-info">
+        <h1>Join Django Blog.</h1>
+        <p>Create an account to start sharing your stories and ideas with a community of curious readers and writers.</p>
+    </div>
+    
+    <!-- Right Side: The Form -->
+    <div class="split-form-side">
         <form method="POST">
             {% csrf_token %}
-            <h2 class="form-title">Join Django Blog</h2>
-            <p class="form-description">Create an account to start sharing your stories and ideas.</p>
             <fieldset class="form-group">
                 {{ form.as_p }}
             </fieldset>
@@ -14,10 +22,10 @@
                 <button class="btn-submit" type="submit">Sign Up</button>
             </div>
         </form>
-        <div class="border-top pt-3 text-center">
-            <small class="text-muted">
-                Already have an account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
-            </small>
+        <div class="form-footer-link">
+            <small>Already have an account? <a href="{% url 'login' %}">Sign In</a></small>
         </div>
     </div>
+
+</div>
 {% endblock content %}

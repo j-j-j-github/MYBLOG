@@ -81,8 +81,9 @@ body.reader-mode .topic-tags .tag:hover {
 
 /* --- LOGGED OUT Header --- */
 .logged-out-header {
-    background-color: #FFC017;
-    border-bottom: 1px solid #000;
+    /* --- FIX: Changed background to black and border to light gray --- */
+    background-color: #191919;
+    border-bottom: 1px solid #333;
     padding: 20px 0;
     position: fixed;
     width: 100%;
@@ -102,7 +103,8 @@ body.reader-mode .topic-tags .tag:hover {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
     font-weight: 700;
-    color: #000;
+    /* --- FIX: Changed logo text to white --- */
+    color: #fff;
 }
 
 .logged-out-header .nav-links {
@@ -114,16 +116,19 @@ body.reader-mode .topic-tags .tag:hover {
     margin-left: 25px;
     font-size: 0.95rem;
     font-weight: 500;
-    color: #191919;
+    /* --- FIX: Changed nav item text to white --- */
+    color: #fff;
 }
 
 .logged-out-header .nav-item:hover {
-    color: #000;
+    /* --- FIX: Changed hover text to light gray --- */
+    color: #ccc;
 }
 
 .logged-out-header .btn-primary {
-    background-color: #191919;
-    color: #fff;
+    /* --- FIX: Inverted button to white box, black text --- */
+    background-color: #fff;
+    color: #191919;
     border-radius: 99em;
     padding: 8px 18px;
     font-size: 0.95rem;
@@ -132,14 +137,16 @@ body.reader-mode .topic-tags .tag:hover {
 }
 
 .logged-out-header .btn-primary:hover {
-    background-color: #000;
-    color: #fff;
+    /* --- FIX: Added hover for new button style --- */
+    background-color: #f0f0f0;
+    color: #000;
 }
 
 /* --- LOGGED OUT Main Content --- */
 .logged-out-main {
-    background-color: #FFC017;
-    border-bottom: 1px solid #000;
+    /* --- FIX: Changed background to white and border to light gray --- */
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
     padding: 120px 0 80px;
     min-height: 80vh;
     display: flex;
@@ -173,10 +180,12 @@ body.reader-mode .topic-tags .tag:hover {
 .logged-out-main p {
     font-size: 1.5rem;
     margin-bottom: 30px;
+    /* --- FIX: Ensured text is dark --- */
     color: #191919;
 }
 
 .logged-out-main .start-reading-btn {
+    /* --- FIX: Kept this button black on white for contrast --- */
     background-color: #191919;
     color: #fff;
     border-radius: 99em;
@@ -193,8 +202,9 @@ body.reader-mode .topic-tags .tag:hover {
 }
 
 .logged-out-main .hero-image-container {
-    width: 500px;
-    height: 450px;
+    width: 500px !important;
+    height: 450px !important;
+    border-radius: 5px;
     position: relative;
     overflow: hidden;
 }
@@ -224,17 +234,16 @@ body.reader-mode .topic-tags .tag:hover {
     z-index: 999;
 }
 
-/* --- FIX: Centering the inner navigation bar --- */
 .logged-in-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px; /* Constrains the width */
+    max-width: 1200px;
     padding: 10px 20px;
-    box-sizing: border-box; /* Includes padding in the width calculation */
-    margin-left: auto; /* Centers the element */
-    margin-right: auto; /* Centers the element */
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logged-in-nav .nav-left,
@@ -267,7 +276,6 @@ body.reader-mode .topic-tags .tag:hover {
 
 .logged-in-nav .search-bar {
     position: relative;
-    /* --- FIX: Removed the incorrect hardcoded 270px margin --- */
     margin-left: 25px; 
 }
 
@@ -793,6 +801,7 @@ body.reader-mode .topic-tags .tag:hover {
     margin-bottom: 5px;
     font-weight: 500;
     color: #292929;
+    font-size: 0.9rem;
 }
 
 .form-group input[type="text"],
@@ -932,3 +941,102 @@ body.reader-mode .topic-tags .tag:hover {
         height: 200px;
     }
 }
+
+/* --- "Our Story" Page Styles --- */
+.content-section-standalone {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+}
+
+.story-title {
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* We reuse the post-detail-content class for nice paragraph styling */
+.content-section-standalone .post-detail-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* --- Two-Column Register Form Styles --- */
+.split-form-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px; /* Container to hold the two columns */
+    margin: 40px auto;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures columns stay inside the rounded border */
+}
+
+.split-form-info {
+    flex-basis: 45%;
+    padding: 50px;
+    background-color: #f9f9f9;
+    color: #292929;
+}
+
+.split-form-info h1 {
+    font-size: 2.5rem;
+}
+
+.split-form-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #6b6b6b;
+}
+
+.split-form-side {
+    flex-basis: 55%;
+    padding: 50px;
+}
+
+/* Override .form-group to remove default margins */
+.split-form-side .form-group {
+    margin-bottom: 1.2rem;
+}
+
+/* Style the links at the bottom */
+.form-footer-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments for the new forms */
+@media (max-width: 900px) {
+    .split-form-container {
+        flex-direction: column;
+        margin: 20px 15px;
+    }
+    
+    .split-form-info {
+        padding: 30px;
+    }
+
+    .split-form-side {
+        padding: 30px;
+    }
+}
+.form-group .helptext {
+    font-size: 1.0rem;  
+    color: #6b6b6b;
+    display: block; 
+    margin-top: 5px; 
+}
+
+.form-group ul.errorlist {
+    font-size: 1.0rem;   
+    color: #dc3545; 
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+

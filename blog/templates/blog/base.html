@@ -25,10 +25,12 @@
                 <a href="{% url 'post-create' %}" class="nav-item"><i class="fas fa-pen"></i> Write</a>
                 <button id="reader-mode-toggle" class="nav-item"><i class="fas fa-moon"></i></button>
                 <div class="profile-dropdown">
-                    <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic">
+                    <!-- ### FIX 1: Added check for authenticated user ### -->
+                    <img src="{% if user.is_authenticated and user.profile.image %}{{ user.profile.image.url }}{% else %}{{ MEDIA_URL }}user.png{% endif %}" alt="Profile Picture" class="profile-pic">
                     <div class="dropdown-content">
                         <div class="dropdown-header">
-                            <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic-lg">
+                            <!-- ### FIX 2: Added check for authenticated user ### -->
+                            <img src="{% if user.is_authenticated and user.profile.image %}{{ user.profile.image.url }}{% else %}{{ MEDIA_URL }}user.png{% endif %}" alt="Profile Picture" class="profile-pic-lg">
                             <span>{{ user.username }}</span>
                         </div>
                         <a href="{% url 'profile' %}"><i class="fas fa-user"></i> Profile</a>

@@ -1,5 +1,22 @@
-{% extends "blog/base.html" %}
+{% extends "blog/logged_out_base.html" %}
+{% load static %}
+
+{% block title %}Our Story - Django Blog{% endblock %}
+
 {% block content %}
-    <h1>About Page</h1>
-    <p>This is a Django blog created as a demo!</p>
+<div class="content-section-standalone">
+    <h1 class="story-title">Our Story</h1>
+    
+    <div class="post-detail-content">
+        <p>Welcome to Django Blog, the place where ideas take root and stories find their voice. Our mission is simple: to create a clean, uncluttered space for writers to share their insights and for readers to discover new perspectives.</p>
+        
+        <p>In a world full of noise, we believe in the power of quality over quantity. We're building a community driven by curiosity, nuance, and the shared belief that a good story can change your day, and maybe even your mind.</p>
+        
+        <p>This platform was born from a simple desire to get back to basics—to focus on the words and the ideas behind them. No distractions, no complicated algorithms, just a direct line from the writer to the reader.</p>
+        
+        <p>Whether you're here to read, to write, or simply to explore, we're glad you found us.</p>
+        
+        <p><strong>- The Django Blog Team</strong></p>
+    </div>
+</div>
 {% endblock content %}
